@@ -57,9 +57,11 @@ class EstadoDeRejeicao:
 
 class Automato:
     def __init__(self):
-        self.estado_atual = Estado_q0()
+        self.estado_inicial = Estado_q0()
+        self.estado_atual = self.estado_inicial
     
     def transicoes(self, cadeia):
+        self.estado_atual = self.estado_inicial
         for entrada in cadeia:
             self.estado_atual = self.estado_atual.transicao(entrada)
     
@@ -73,4 +75,24 @@ class Automato:
             print("Cadeia rejeitada pelo automato")
 
 automato = Automato()
+automato.executar("bbbccc")
 automato.executar("")
+automato.executar("a")
+automato.executar("b")
+automato.executar("aa")
+automato.executar("ab")
+automato.executar("aab")
+automato.executar("aaa")
+automato.executar("aac")
+automato.executar("abbbb")
+automato.executar("abac")
+automato.executar("abca")
+automato.executar("abbca")
+automato.executar("abcc")
+automato.executar("aabb")
+automato.executar("aaca")
+automato.executar("aaccc")
+automato.executar("abbbbb")
+automato.executar("abaccc")
+automato.executar("abaac")
+automato.executar("abbbbbb")
